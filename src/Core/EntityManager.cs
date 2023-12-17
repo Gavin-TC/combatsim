@@ -34,8 +34,8 @@ namespace Combatsim.Core {
 			Console.WriteLine($"removeEntity({entity}) is not valid because the entity doesn't exist.");
 		}
 
-		public List<Entity> getEntities() {
-			return entities;
+		public List<Entity> Entities {
+			get => entities;
 		}
 	}
 }
