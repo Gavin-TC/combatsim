@@ -1,10 +1,8 @@
 using Combatsim.Entities;
 
 namespace Combatsim.Core {
-	// Most ints need to be changed to Entity 
 	public class EntityManager {
 		private List<Entity> entities = new List<Entity>();
-		private bool looping = false;
 		
 		public EntityManager(Entity[]? startEntities) {
 			if (startEntities != null) {
