@@ -17,7 +17,7 @@ namespace Graphic.Graphics{
 
 			for (int y = 0; y < map.Count; y++) {
 				for (int x = 0; x < map[0].Count; x++) {
-					foreach (Entity entity in entityManager.getEntities()) {
+					foreach (Entity entity in entityManager.Entities) {
 						if (entity.Position.X == x && entity.Position.Y == y) {
 							Console.Write(entity.Character);
 						} else {

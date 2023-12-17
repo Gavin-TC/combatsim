@@ -12,3 +12,4 @@ C:\Users\codma\Documents\Programming\C#\combatsim\obj\Debug\net8.0\refint\combat
 C:\Users\codma\Documents\Programming\C#\combatsim\obj\Debug\net8.0\combatsim.pdb
 C:\Users\codma\Documents\Programming\C#\combatsim\obj\Debug\net8.0\combatsim.genruntimeconfig.cache
 C:\Users\codma\Documents\Programming\C#\combatsim\obj\Debug\net8.0\ref\combatsim.dll
+C:\Users\codma\Documents\Programming\C#\combatsim\obj\Debug\net8.0\combatsim.sourcelink.json
