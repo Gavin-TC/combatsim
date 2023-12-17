@@ -13,7 +13,7 @@ namespace Combatsim.Core {
 		}
 
 		public void updateEntities() {
-			foreach (Entity entity in entities) {
+			foreach (Entity entity in entities.ToList()) {
 				if (entity != null) {
 					entity.update();
 				}
