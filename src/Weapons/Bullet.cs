@@ -18,7 +18,7 @@ namespace Combatsim.Weapons {
 		}
 
 		public Bullet(List<List<char>> map, EntityManager entityManager, Point position, Point direction, int damage, double accuracy)
-			: base(map, entityManager, position, '•') {
+			: base(map, entityManager, position, '*') {
 			this.map = map;
 			this.entityManager = entityManager;
 			this.position = position;

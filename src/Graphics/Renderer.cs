@@ -17,14 +17,19 @@ namespace Graphic.Graphics{
 
 			for (int y = 0; y < map.Count; y++) {
 				for (int x = 0; x < map[0].Count; x++) {
-					foreach (Entity entity in entityManager.Entities) {
-						if (entity.Position.X == x && entity.Position.Y == y) {
+					bool entityWritten = false;
+
+					foreach (Entity entity in entityManager.Entities.ToList()) {
+						if (entity != null && entity.Position.X == x && entity.Position.Y == y) {
 							Console.Write(entity.Character);
-						} else {
-							Console.Write(map[y][x]);
+							entityWritten = true;
+							break;
 						}
 					}
 
+					if (!entityWritten) {
+						Console.Write(map[y][x]);
+					}
 				}
 				Console.WriteLine();
 			}
