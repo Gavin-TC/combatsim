@@ -1,8 +1,10 @@
+using System.Dynamic;
 using Combatsim.Entities;
 
 namespace Combatsim.Core {
 	public class EntityManager {
 		private List<Entity> entities = new List<Entity>();
+		private List<Soldier> soldiers = new List<Soldier>();
 		
 		public EntityManager(Entity[]? startEntities) {
 			if (startEntities != null) {
@@ -12,11 +14,13 @@ namespace Combatsim.Core {
 			}
 		}
 
-		public void updateEntities() {
+		public void update() {
 			foreach (Entity entity in entities.ToList()) {
-				if (entity != null) {
-					entity.update();
-				}
+				entity.update();
+			}
+
+			foreach (Soldier soldier in soldiers.ToList()) {
+				soldier.update();
 			}
 		}
 
@@ -24,6 +28,9 @@ namespace Combatsim.Core {
 			entities.Add(entity);
 		}
 
+		public void addSoldier(Soldier soldier) {
+			soldiers.Add(soldier);
+		}
 
 		public void removeEntity(Entity entity) {
 			if (entities.Contains(entity)) {
@@ -32,8 +39,15 @@ namespace Combatsim.Core {
 			Console.WriteLine($"removeEntity({entity}) is not valid because the entity doesn't exist.");
 		}
 
+
 		public List<Entity> Entities {
 			get => entities;
+			set => entities = value;
+		}
+
+		public List<Soldier> Soldiers {
+			get => soldiers;
+			set => soldiers = value;
 		}
 	}
 }

@@ -7,10 +7,10 @@ namespace Combatsim.Entities {
 	public class Entity {
 		protected List<List<char>> map;
 		protected EntityManager entityManager; 
+		protected int ticks = 0;
 
 		protected char character = 'S';
 		protected Point position;
-		protected bool queuedForDeletion = false;
 
 		public Entity(List<List<char>> map, EntityManager entityManager, Point position, char character=' ') {
 			this.map = map;
@@ -20,9 +20,8 @@ namespace Combatsim.Entities {
 		}
 
 		public virtual void update() {
-			if (isOutOfBounds()) {
-				queuedForDeletion = true;
-			}
+			isOutOfBounds();
+			tick();
 		}
 
 		public bool isOutOfBounds() {
@@ -31,8 +30,20 @@ namespace Combatsim.Entities {
 			return false;
 		}
 
+		public void tick() {
+			if (ticks > 8) {
+				ticks = 1;
+			}
+			ticks++;
+		}
+
 
 		// Getters and setters
+		public int Ticks {
+			get => ticks;
+			set => ticks = value;
+		}
+
 		public char Character {
 			get => character;
 			set => character = value;
@@ -41,11 +52,6 @@ namespace Combatsim.Entities {
 		public Point Position{
 			get => position;
 			set => position = value;
-		}
-
-		public bool QueuedForDeletion {
-			get => queuedForDeletion;
-			set => queuedForDeletion = value;
 		}
 	}	
 }

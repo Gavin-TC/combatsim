@@ -2,18 +2,18 @@ using System.Security.Cryptography;
 
 namespace Combatsim.Graphics {
 	public class MapGenerator {
-		public List<List<char>> generateMap(int mapWidth, int mapHeight, bool emptyMap = false) {
+		public List<List<char>> generateMap(int mapWidth, int mapHeight) {
 			List<List<char>> map = new List<List<char>>();
 			Random random = new Random();
 
-			char[] possibleTiles = ['.', ' ', ',']; 
-            if (emptyMap) possibleTiles = [' ', ' ', ' '];
+			// TODO: add generation of walls or something
+			char[] possibleTiles = ['\'', '.', ',', ' ', ' ', ' ', ' ', ' ']; 
 
 			for (int y = 0; y < mapHeight; y++) {
 				List<char> row = new List<char>();
 				
 				for (int x = 0; x < mapWidth; x++) {
-					row.Add(possibleTiles[random.Next(3)]);
+					row.Add(possibleTiles[random.Next(possibleTiles.Length)]);
 				}
 				map.Add(row);
 			}
